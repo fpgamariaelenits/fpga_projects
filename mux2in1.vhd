@@ -2,9 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity mux2in1 is
-		port(input0,input1: std_logic_vector(0 to 63);
+		port(input0,input1: std_logic_vector(7 downto 0);
 		sel: std_logic;
-		output:out std_logic_vector(0 to 63));
+		output:out std_logic_vector(7 downto 0));
 		end  mux2in1;
 
 architecture behavioral of mux2in1 is
