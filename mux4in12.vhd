@@ -1,13 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity mux4in1 is
-		port(input0,input1,input2,input3: std_logic_vector(5 downto 0);
+entity mux4in12 is
+		port(input0,input1,input2,input3: std_logic;
 		sel: std_logic_vector(1 downto 0);
-		output:out std_logic_vector(5 downto 0));
-		end  mux4in1;
+		output:out std_logic);
+		end  mux4in12;
 
-architecture behavioral of mux4in1 is
+architecture behavioral of mux4in12 is
 	begin
 	process(input0,input1,input2,input3,sel) is
 	begin
