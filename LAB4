@@ -1,0 +1,65 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+library lpm;
+use lpm.lpm_components.all;
+use work.hardwiredlib.all;
+
+entity hardwired is
+port( ir            	  : in std_logic_vector(3 downto 0);
+           clock, reset  : in std_logic ;
+           z             	  : in std_logic ;
+           mOPs             : out std_logic_vector(26 downto 0));
+end hardwired;
+architecture arc of hardwired is
+
+end arc;
+
+architecture arc of hardwired is
+
+signal FETCH1,FETCH2,FETCH3,NOP1 : std_logic;
+signal LDAC1,LDAC2,LDAC3,LDAC4,LDAC5 :std_logic;
+signal STAC1,STAC2,STAC3,STAC4,STAC5 :std_logic;
+signal MVAC1,MOVR1,JUMP1,JUMP2,JUMP3 :std_logic;
+signal JMPZ1,JMPZY1,JMPZY2,JMPZY3,JMPZN1,JMPZN2 :std_logic;
+signal JPNZ1,JPNZY1,JPNZY2,JPNZY3,JPNZN1,JPNZN2 :std_logic;
+signal ADD1,SUB1,INAC1,CLAC1,AND1,OR1,XOR1,NOT1 :std_logic;
+signal cdata :std_logic_vector(2 downto 0);
+signal T :std_logic_vector(7 downto 0);
+singal I :std_logic_vector(15 downto 0);
+signal notaz,inc,clear :std_logic;
+begin
+
+not <= not(z);
+
+CA
+
+
+
+mOPs(0)<= SUB1;
+mOPs(1)<= ADD1;
+mOPs(2)<= CLAC1;
+mOPs(3)<= INAC1;
+mOPs(4)<= NOT1;
+mOPs(5)<= XOR1;
+mOPs(6)<= OR1;
+mOPs(7)<= AND1;
+mOPs(8)<= STAC4 or MVAC1;
+mOPs(9)<= MOVR1 or ADD1 or SUB1 or AND1 or OR1 or XOR1;
+mOPs(10)<= LDAC3 or STAC3 or JUMP3 OR JMPZY3 or JPNZY3;
+mOPs(11)<= LDAC2 or LDAC3 or LDAC5 or STAC2 or STAC5 or JUMP2 or JUMP3 or JMPZY2 or JMPZY3 or JPNZY2 or JPNZY3;
+mOPs(12)<= FETCH1 or FETCH3;
+mOPs(13)<= STAC5;
+mOPs(14)<= FETCH2 or LDAC1 or LDAC2 or LDAC4 or STAC1 or STAC2 or JUMP1 or JUMP2 or JMPZY1 or JMPZY2 or JPNZY1 or JPNZY2;
+mOPs(15)<= STAC5;
+mOPs(16)<= FETCH2 or LDAC1 or LDAC2 or LDAC4 or STAC1 or STAC2 or JUMP1 or JUMP2 or JMPZY1 or JMPZY2 or JPNZY1 or JPNZY2;
+mOPs(17)<= LDAC5 or MOVR1 or ADD1 or SUB1 or INAC1 or CLAC1 or AND1 or OR1 or XOR1 or NOT1;
+mOPs(18)<= LDAC5 or MOVR1 or ADD1 or SUB1 or INAC1 or CLAC1 or AND1 or OR1 or XOR1 or NOT1;
+mOPs(19)<= MVAC1;
+mOPs(20)<= FETCH3;
+mOPs(21)<= LDAC2 or STAC2 or JUMP2 or JMPZY2 or JPNZY2;
+mOPs(22)<= FETCH2 or LDAC1 or LDAC2 or LDAC4 or STAC1 or STAC2 or STAC4 or JUMP1 or JUMP2 or JMPZY1 or JMPZY2 or JPNZY1 or JPNZY2;
+mOPs(23)<= FETCH2 or LDAC1 or LDAC2 or STAC1 or STAC2 or JMPZN1 or JMPZN2 or JPNZN1 or JPNZN2;
+mOPs(24)<= JUMP3 or JMPZY3 or JPNZY3;
+mOPs(25)<= LDAC1 or STAC1 or JMPZY1 or JPNZY1;
+mOPs(26)<= FETCH1 or FETCH3 or LDAC3 or STAC3;
